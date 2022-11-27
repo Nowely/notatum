@@ -5,8 +5,6 @@ import {observer} from "mobx-react-lite";
 
 export const Column = observer(({type}: { type: string }) => {
 
-	const data = []
-
 	return (
 		<Col span={3}
 			 style={{
@@ -18,8 +16,8 @@ export const Column = observer(({type}: { type: string }) => {
 				 backgroundColor: 'lightcyan'
 			 }}
 		>
-			{store.pages.map(value =>
-				<Card key={value.id} size="small">
+			{store.selectedPage?.children?.map(value =>
+				<Card key={value.id} size="small" style={{marginBottom: 5}}>
 					{value.title}
 				</Card>
 			)}

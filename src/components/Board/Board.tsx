@@ -2,8 +2,10 @@
 import {observer} from "mobx-react-lite";
 import {Column} from "./components/Column";
 import {Header} from "./components/Header";
+import {store} from "../../Stores/Store";
 
 export const Board = observer(() => {
+    if (!store.selectedPage) return null
 
     return (
         <div style={{marginTop: 10}}>
@@ -23,4 +25,3 @@ export const Board = observer(() => {
         </div>
     )
 })
-

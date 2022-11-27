@@ -19,19 +19,16 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.3",
-    "react-scripts": "^5.0.1",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "@types/lodash": "^4.14.190",
-    "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
     "@types/react-router-dom": "^5.3.3",
     "@types/uuid": "^8.3.4",
     "@vitejs/plugin-react": "^2.2.0",
-    "ajv": "^8.11.2",
-    "nan": "^2.17.0",
     "typescript": "^4.9.3",
     "vite": "^3.2.3"
   }
