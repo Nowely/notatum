@@ -1,10 +1,24 @@
-﻿import {Button, Card, Col, Input, Modal} from "antd";
-import {PlusOutlined} from "@ant-design/icons";
+﻿import {Button, Card, Col, Dropdown, Input, MenuProps, Modal} from "antd";
+import {EllipsisOutlined, PlusOutlined} from "@ant-design/icons";
 import {store} from "../../../Stores/Store";
 import {observer} from "mobx-react-lite";
 import {useEffect, useState} from "react";
 import {Page} from "../../../Models/Page";
 import TextArea from "antd/es/input/TextArea";
+
+const items: MenuProps['items'] = [
+    {
+        label: 'Delete',
+        key: '1',
+        danger: true
+    },
+];
+
+const menuProps = {
+    items,
+    //onClick: handleMenuClick,
+};
+
 
 export const Column = observer(({type}: { type: string }) => {
     const [creating, setCreating] = useState(false)
@@ -32,8 +46,22 @@ export const Column = observer(({type}: { type: string }) => {
         >
             {store.selectedPage?.children?.map(value =>
                 <Card hoverable key={value.id} size="small" style={{marginBottom: 5}}
-                      onClick={() => setSelected(value)}>
-                    {value.title}
+                      onClick={(event) => {
+                          if ((event.target as HTMLElement).textContent !== 'Delete')
+                              setSelected(value)
+                      }}
+                >
+                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                        {value.title}
+                        <Dropdown menu={{
+                            items, onClick: (e) => {
+                                store.selectedPage!.children = store.selectedPage?.children?.filter((v) => v !== value)
+                                //_.remove(store.selectedPage?.children!, value)
+                            }
+                        }}>
+                            <Button icon={<EllipsisOutlined/>} size={"small"}/>
+                        </Dropdown>
+                    </div>
                 </Card>
             )}
             <Modal
