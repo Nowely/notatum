@@ -11,16 +11,16 @@ export const Board = observer(() => {
         <div style={{marginTop: 10}}>
             <Row gutter={[16, 8]}>
                 <Header type={'Daily'}/>
-                <Header type={'Week'}/>
+                {/*<Header type={'Week'}/>
                 <Header type={'Month'}/>
-                <Header type={'Year'}/>
+                <Header type={'Year'}/>*/}
             </Row>
 
             <Row gutter={[16, 8]}>
                 <Column type={'Daily'}/>
-                <Column type={'Week'}/>
+                {/*<Column type={'Week'}/>
                 <Column type={'Month'}/>
-                <Column type={'Year'}/>
+                <Column type={'Year'}/>*/}
             </Row>
         </div>
     )
